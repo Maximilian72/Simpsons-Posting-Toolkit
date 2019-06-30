@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      <p>Menu</p>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
-  <ion-button expand="full" (click)="openCreate">New Post</ion-button>
-  <!-- <ion-button expand="full" (click)="">Past Post</ion-button>
-  <ion-button expand="full" (click)="">Sponsorship</ion-button>
-  <ion-button expand="full" (click)="">About</ion-button>
-  <ion-button expand="full" (click)="">Legal</ion-button> -->
+  <ion-button expand="full" [routerLink]="['/template']">New Post</ion-button>
+  <ion-button expand="full" [routerLink]="[]">Past Post</ion-button>
+  <ion-button expand="full" [routerLink]="[]">Sponsorship</ion-button>
+  <ion-button expand="full" [routerLink]="[]">About</ion-button>
+  <ion-button expand="full" [routerLink]="[]">Legal</ion-button>
 
 </ion-content>

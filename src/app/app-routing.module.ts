@@ -8,6 +8,8 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './pages/menu/menu.module#MenuPageModule' },
   { path: 'template', loadChildren: './pages/template/template.module#TemplatePageModule' },
   { path: 'create', loadChildren: './pages/create/create.module#CreatePageModule' },
+  { path: 'template', loadChildren: './template/template.module#TemplatePageModule' },
+  { path: 'template', loadChildren: './pages/pages/template/template.module#TemplatePageModule' },
 ];
 
 @NgModule({

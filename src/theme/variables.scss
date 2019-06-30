@@ -33,9 +33,31 @@
 
 }
 
+*{
+  font-family: 'Simpsons';
+}
+
 ion-button{
   --border-radius: 0px;
   --background: var(--simpsons-red);
   --background-hover: var(--simpsons-red-tint);
   --background-activated: var(--simpsons-red-shade);	
+  font-size: 1.8em;
+  font-weight:bold;
 }
+
+ion-title{
+  background-color: var(--simpsons-yellow);
+  font-size: 2.6em;
+  font-weight: bold;
+  height: 100%;
+  width: 100%;
+  margin:0;
+  padding-top: 5px;
+}
+
+ion-header{
+  height:80px;
+  padding:20px 0;
+}
+

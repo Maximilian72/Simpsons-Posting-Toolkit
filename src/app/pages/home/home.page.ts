@@ -9,15 +9,9 @@ import { Router } from '@angular/router';
 
 export class HomePage {
 
-  constructor(private router: Router) {
+  constructor() {
 
-    function openCreate(){
-      console.log("New post em route");
-      this.router.navigate(['/create']);
-    }
   }
-
-  
 
 }
 
