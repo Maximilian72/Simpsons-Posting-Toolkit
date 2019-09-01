@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationExtras } from '@angular/router';
+// import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-template',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplatePage implements OnInit {
 
-  constructor() { }
+  data = {
+    urls: [
+      '../../../assets/images/Simpsons_FamilyPicture.png',
+      '../../../assets/images/Simpsons_cast.png'
+    ]
+  }
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  openCreate(){
+
+    let navigationExtras: NavigationExtras = {
+      state: {
+        user: this.data
+      }
+    };
+    this.router.navigate(['create'], navigationExtras);
+
   }
 
 }
