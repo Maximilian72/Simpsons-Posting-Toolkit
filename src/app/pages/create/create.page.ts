@@ -14,6 +14,8 @@ export class CreatePage implements OnInit {
   memeArray = [];
 
   data: any;
+
+  parser = new DOMParser();
   
   constructor(private route: ActivatedRoute, private router: Router) {
 
@@ -26,11 +28,10 @@ export class CreatePage implements OnInit {
       }
 
       let noURLs = this.data.urls.length;
-      // console.log(noURLs);
 
       for(let i = 0; i < noURLs; i++){
 
-        this.sourceArray[i] = JSON.stringify(this.data.urls[i]);
+        this.sourceArray[i] = this.data.urls[i];
         console.log(this.sourceArray[i]);
 
       }
@@ -39,22 +40,19 @@ export class CreatePage implements OnInit {
 
   }
 
-  ngAfterViewInit(){
+  ionViewWillEnter(){
  
     let noMemes = this.sourceArray.length;
-
     for(let i = 0; i < noMemes; i++){
       
-      this.canvasArray[i] = document.createElement("canvas");
-      this.canvasArray[i].setAttribute("id", i);
-      // this.ctxArray[i] = this.canvasArray[i].getContext("2d");
-      // this.ctxArray[i].setAttribute("id", i);
-
       this.memeArray[i] = new Image();
       this.memeArray[i].src = this.sourceArray[i];
-      this.memeArray[i].src = this.memeArray[i].src.substring(0, this.memeArray[i].src.length -3);
 
-      this.ctxArray[i].drawImage(this.memeArray[i],0,0);
+      this.canvasArray[i] = document.createElement("canvas");
+
+      this.canvasArray[i] = this.canvasArray[i].getContext("2d");
+
+      this.canvasArray[i].drawImage(this.memeArray[i],0,0);
 
       document.getElementById("canvasContainer").appendChild(this.canvasArray[i]);
 
