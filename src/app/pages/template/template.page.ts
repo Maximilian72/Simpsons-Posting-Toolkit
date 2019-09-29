@@ -25,7 +25,7 @@ export class TemplatePage implements OnInit {
 
     let navigationExtras: NavigationExtras = {
       state: {
-        user: this.data
+        urls: this.data
       }
     };
     this.router.navigate(['create'], navigationExtras);
