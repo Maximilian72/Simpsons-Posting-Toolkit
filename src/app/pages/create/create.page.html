@@ -8,14 +8,10 @@
 
   <ion-list *ngFor="let source of sourceArray; let i = index;">
     <img src={{source}} style="display:none;" id='{{ "I" + i }}'>
-    <canvas id='{{ "C" + i }}'></canvas>
+    <canvas id='{{ "C" + i }}'>
+      <!-- <ion-textarea class="upperText"></ion-textarea>
+      <ion-textarea class="lowerText"></ion-textarea> -->
+    </canvas>
   </ion-list>
-
-  <!-- <div id="canvasContainer"></div> -->
-
-  <!-- <img id="testImage" src="../../../assets/images/Simpsons_FamilyPicture.png" style="display:none;">
-  <canvas id="test" width="300" height="300"></canvas> -->
-
-  <!-- <ion-list *ngFor="let thing of canvasArray">{{thing}}</ion-list> -->
   
 </ion-content>

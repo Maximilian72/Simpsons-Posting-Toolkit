@@ -53,6 +53,10 @@ export class CreatePage implements OnInit {
       this.canvasArray[i] = this.canvasArray[i].getContext("2d");
       this.canvasArray[i].drawImage(image,0,0);
 
+      // Testing TEXT
+      this.canvasArray[i].font = "15px Simpsons"
+      this.canvasArray[i].fillText("Noodleman", 10, 15)
+
     }
 
   }

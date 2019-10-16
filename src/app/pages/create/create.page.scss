@@ -3,3 +3,21 @@ ion-content canvas {
     border: 2px solid green;
 
 }
+
+.upperText{
+
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    border: 2px solid red;
+
+}
+
+.lowerText{
+
+    width: 100%;
+    height: 50%;
+    position: relative;
+    border: 2px solid blue;
+    
+}
