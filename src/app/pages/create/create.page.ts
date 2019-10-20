@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreatePage implements OnInit {
 
   canvasArray = [];
+  canvasWidthArray = [];
   sourceArray = [];
 
   urlsIn: any;
@@ -56,12 +57,9 @@ export class CreatePage implements OnInit {
       let image = <HTMLImageElement>document.getElementById(imgEl);
       
       this.canvasArray[i] = <HTMLCanvasElement>document.getElementById(canEl);
+      this.canvasWidthArray[i] = this.canvasArray[i].width;
       this.canvasArray[i] = this.canvasArray[i].getContext("2d");
       this.canvasArray[i].drawImage(image,0,0);
-
-      // Testing TEXT
-      // this.canvasArray[i].font = "15px Simpsons"
-      // this.canvasArray[i].fillText("Noodleman", 10, 15)
 
     }
 
@@ -69,34 +67,29 @@ export class CreatePage implements OnInit {
 
   addText(i){
 
-    this.canvasArray[i].font = "25px Simpsons"
+    // Text setting
+    this.canvasArray[i].font      = "25px Simpsons"
+    // this.canvasArray[i].textAlign = "center"
 
-    let inputElName = "T" + i.toString();
-    let inputEl = <HTMLInputElement>document.getElementById(inputElName);
-    let text = "" + inputEl.value;
-    console.log(text);
-    
-    // let maxWidth = this.canvasArray[i].width;
-    let maxWidth = 300
-    console.log("maxWidth: " + maxWidth)
+    // Setup for text wrap
+    let inputElName   = "T" + i.toString();
+    let inputEl       = <HTMLInputElement>document.getElementById(inputElName);
+    let text          = "" + inputEl.value; 
+    let maxWidth      = this.canvasWidthArray[i];
+    let lineHeight    = 50;
+    let x             = 10;
+    let y             = 50;
+    let words         = text.split(" ");
+    let line          = "";
 
-    let lineHeight = 50;
-    let x = 10;
-    let y = 50;
-
-    let words = text.split(" ");
-    let line = "";
-
+    // Loop over each word and add to line, if line too long; 
+    //      drop last word and print the start again.
     let len = words.length;
     for (let j = 0; j < len; j++){
 
       let testLine = line + words[j] + " ";
       let metrics = this.canvasArray[i].measureText(testLine);
       let testWidth = metrics.width;
-      console.log("metrics: " + metrics)
-      console.log("testLine: " + testLine)
-      console.log("testWidth: " + testWidth);
-      console.log("maxWidth: " + maxWidth);
 
       if(testWidth > maxWidth){
 
