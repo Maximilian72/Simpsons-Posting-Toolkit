@@ -7,11 +7,24 @@
 <ion-content>
 
   <ion-list *ngFor="let source of sourceArray; let i = index;">
+
     <img src={{source}} style="display:none;" id='{{ "I" + i }}'>
-    <canvas id='{{ "C" + i }}'>
-      <!-- <ion-textarea class="upperText"></ion-textarea>
-      <ion-textarea class="lowerText"></ion-textarea> -->
-    </canvas>
+
+    <canvas id='{{ "C" + i }}'></canvas>
+
+    <!-- <ion-input placeholder="{{ upperLower }}" id='{{ "T" + i }}' type="text" [(ngModel)]="text"> -->
+    <!-- <ion-input placeholder="{{ upperLower }}" type="text" [(ngModel)]='"T" + i'> -->
+    <input id='{{ "T" + i }}' placeholder="{{ upperLower }}"/>
+
+    <ion-button class="addButton" (click)="addText(i)">
+      Add
+    </ion-button>
+
+    <ion-button class="upperButton" (click)="upperButton()">UPPER</ion-button>
+    <ion-button class="lowerButton" (click)="lowerButton()">LOWER</ion-button>
+    <ion-button class="saveButton">SAVE</ion-button>
+    <ion-button class="undoButton">UNDO</ion-button>
+
   </ion-list>
   
 </ion-content>
